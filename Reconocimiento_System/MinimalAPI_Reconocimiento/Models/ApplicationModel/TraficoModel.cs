@@ -9,9 +9,9 @@ namespace MinimalAPI_Reconocimiento.Models.ApplicationModel
         public int IdTrafico { get; set; }
         //column type bigint
         [Column(TypeName = "bigint"), Required]
-        public Int64 PatentesReconocidas { get; set; }
+        public int PatentesReconocidas { get; set; }
         [Column(TypeName = "bigint"), Required]
-        public Int64 PatentesNoReconocidas { get; set; }
+        public int PatentesNoReconocidas { get; set; }
 
         [Column(TypeName = "datetime"), Required]
         public DateTime Fecha { get; set; }

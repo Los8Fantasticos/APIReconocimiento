@@ -18,31 +18,37 @@ namespace MinimalAPI_Reconocimiento.Endpoints.Patente
         }
         public async Task MapPatenteEndpoints(WebApplication app)
         {
-            _ = app.MapGet(
-               "/api/patente/{patente}",
-               async (string patente) =>
-               {
-                   try
-                   {
-                       _logger.LogInformation("test");
-                       var result = await _patenteService.ValidatePatente(patente);
-                       throw new Exception("hola mundo.");
-                       return result;
-                   }
-                   catch (Exception ex)
-                   {
-                       _logger.LogError(ex, "Error en endpoint Validar Patente.");
-                       throw;
-                   }
-               })
-           .WithTags("Patente")
-           .WithMetadata(new SwaggerOperationAttribute("Lookup a Patente by their Patente", "\n    GET /Patente/XXXXXXXX"))
-           .Produces<Models.ApplicationModel.PatenteModel>(StatusCodes.Status200OK, contentType: MediaTypeNames.Application.Json)
-           .Produces<ApiError>(StatusCodes.Status400BadRequest, contentType: MediaTypeNames.Application.Json)
-           .Produces<ApiError>(StatusCodes.Status404NotFound, contentType: MediaTypeNames.Application.Json)
-           .Produces<ApiError>(StatusCodes.Status500InternalServerError, contentType: MediaTypeNames.Application.Json);
-
+           // _ = app.MapGet(
+           //    "/api/patente/{patente}",
+           //    async (string patente) =>
+           //    {
+           //        try
+           //        {
+           //            _logger.LogInformation("test");
+           //            bool result = await _patenteService.ValidatePatente(patente);
+           //            throw new Exception("hola mundo.");
+           //            return result;
+           //        }
+           //        catch (Exception ex)
+           //        {
+           //            _logger.LogError(ex, "Error en endpoint Validar Patente.");
+           //            throw;
+           //        }
+           //    })
+           //.WithTags("Patente")
+           //.WithMetadata(new SwaggerOperationAttribute("Lookup a Patente by their Patente", "\n    GET /Patente/XXXXXXXX"))
+           //.Produces<Models.ApplicationModel.PatenteModel>(StatusCodes.Status200OK, contentType: MediaTypeNames.Application.Json)
+           //.Produces<ApiError>(StatusCodes.Status400BadRequest, contentType: MediaTypeNames.Application.Json)
+           //.Produces<ApiError>(StatusCodes.Status404NotFound, contentType: MediaTypeNames.Application.Json)
+           //.Produces<ApiError>(StatusCodes.Status500InternalServerError, contentType: MediaTypeNames.Application.Json);
         }
-       
+
+        public async Task PatenteRabbitMq()
+        {
+            
+        }
+
+
+
     }
 }
