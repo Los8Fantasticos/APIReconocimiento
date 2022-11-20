@@ -15,8 +15,6 @@ namespace MinimalAPI_Reconocimiento.Infrastructure.Storage
                            int tipoPatente = new Random().Next(1, 5);
                            if (tipoPatente == 1)
                                return (f.Random.String2(3, 3, "ABCDEFGHIJKLMNOPQRSTUVWXYZ") + " " + f.Random.String2(3, 3, "0123456789")).Trim();
-                           else if (tipoPatente == 2)
-                               return (f.Random.String2(3, 3, "0123456789") + " " + f.Random.String2(3, 3, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")).Trim();
                            else if (tipoPatente == 3)
                                return (f.Random.String2(3, 3, "ABCDEFGHIJKLMNOPQRSTUVWXYZ") + f.Random.String2(3, 3, "0123456789")).Trim();
                            else
