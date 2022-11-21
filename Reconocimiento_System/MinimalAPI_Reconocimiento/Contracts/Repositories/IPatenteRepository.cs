@@ -6,6 +6,9 @@ namespace MinimalAPI_Reconocimiento.Contracts.Repositories
     {
         public Task<PatenteModel> GetPatente(string PatenteDTO);
         public Task CountPatente(bool IsRecognition, TraficoModel LastTrafic = null);
-        public Task<TraficoModel> GetLastTrafic();
+        public Task<TraficoModel> GetLastTraffic();
+        public Task<int> GetAllTraffic();
+        public Task<int> GetRecognizedTraffic();
+        public Task<int> GetNotRecognizedTraffic();
     }
 }

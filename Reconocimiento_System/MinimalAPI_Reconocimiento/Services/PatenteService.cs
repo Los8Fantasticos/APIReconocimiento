@@ -17,6 +17,12 @@ namespace MinimalAPI_Reconocimiento.Services
             this.logger = logger;
         }
 
+        public async Task<int> GetTrafico() => await _patenteRepository.GetAllTraffic();
+
+        public async Task<int> GetTraficoNoReconocido() => await _patenteRepository.GetNotRecognizedTraffic();
+
+        public async Task<int> GetTraficoReconocido() => await _patenteRepository.GetRecognizedTraffic();
+
         public async Task ReceiveAsync(string message, CancellationToken cancellationToken)
         {
             logger.LogInformation("Mensaje recibido para validación de patente");
@@ -38,7 +44,7 @@ namespace MinimalAPI_Reconocimiento.Services
                 var PatenteModel = await _patenteRepository.GetPatente(PatenteDTO);
                 bool exists = PatenteModel != null && (PatenteModel.Active);
 
-                var LastTrafic = await _patenteRepository.GetLastTrafic();
+                var LastTrafic = await _patenteRepository.GetLastTraffic();
                 //Validar si la fecha de LastTrafic es mayor que hoy
                 if (LastTrafic != null && LastTrafic.Fecha.Day != DateTime.Now.Day)
                     await _patenteRepository.CountPatente(exists);

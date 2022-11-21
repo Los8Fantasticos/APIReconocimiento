@@ -8,5 +8,13 @@
         /// <param name="PatenteDTO">Propiedad Patente</param>
         /// <returns></returns>
         public Task<bool> ValidatePatente(string PatenteDTO);
+        /// <summary>
+        /// Obtiene el tráfico del día.
+        /// </summary>
+        /// <returns></returns>
+        public Task<int> GetTrafico();
+        public Task<int> GetTraficoReconocido();
+        public Task<int> GetTraficoNoReconocido();
+
     }
 }
