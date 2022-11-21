@@ -15,7 +15,7 @@ namespace MinimalAPI_Reconocimiento.Migrations
                 {
                     IdPatente = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    nvarchar = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    Patente = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Active = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
                     FechaAlta = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()")
                 },

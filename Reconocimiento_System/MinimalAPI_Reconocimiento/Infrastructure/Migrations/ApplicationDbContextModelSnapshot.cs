@@ -44,7 +44,7 @@ namespace MinimalAPI_Reconocimiento.Migrations
                         .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)")
-                        .HasColumnName("nvarchar");
+                        .HasColumnName("Patente");
 
                     b.HasKey("IdPatente");
 

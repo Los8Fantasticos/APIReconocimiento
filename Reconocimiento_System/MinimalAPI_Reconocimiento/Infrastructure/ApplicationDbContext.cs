@@ -38,7 +38,7 @@ namespace MinimalAPI_Reconocimiento.Infrastructure
             modelBuilder.Entity<PatenteModel>(entity =>
             {
                 entity.HasKey(e => e.IdPatente);
-                entity.Property(e => e.Patente).HasMaxLength(10).HasColumnName("nvarchar").IsRequired();
+                entity.Property(e => e.Patente).HasMaxLength(10).HasColumnName("Patente").IsRequired();
                 entity.Property(e => e.Active).HasDefaultValue(true);
                 entity.Property(e => e.FechaAlta).HasDefaultValueSql("getdate()");
             });
