@@ -45,8 +45,8 @@ namespace MinimalAPI_Reconocimiento.Infrastructure
             modelBuilder.Entity<TraficoModel>(entity =>
             {
                 entity.HasKey(e => e.IdTrafico);
-                entity.Property(e => e.PatentesReconocidas).HasColumnType("bigint").IsRequired();
-                entity.Property(e => e.PatentesNoReconocidas).HasColumnType("bigint").IsRequired();
+                entity.Property(e => e.PatentesReconocidas).HasColumnType("bigint").HasColumnName("PatentesReconocidas").IsRequired();
+                entity.Property(e => e.PatentesNoReconocidas).HasColumnType("bigint").HasColumnName("PatentesNoReconocidas").IsRequired();
                 entity.Property(e => e.Fecha).HasDefaultValueSql("getdate()");
             });
 

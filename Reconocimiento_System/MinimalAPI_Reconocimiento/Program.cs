@@ -37,11 +37,6 @@ void ConfigureServices(IServiceCollection services, IConfiguration configuration
 {
     services.AddEndpointsApiExplorer();
     services.AddSwaggerGen();
-    services.AddScoped<PatenteEndpoint>();
-    services.ConfigureLogger(builder);
-
-    services.AddEndpointsApiExplorer();
-    services.AddSwaggerGen();
     services.ConfigureLogger(builder);
     services.AddScoped<PatenteEndpoint>();
     services.AddScoped<IPatenteRepository, PatenteRepository>();

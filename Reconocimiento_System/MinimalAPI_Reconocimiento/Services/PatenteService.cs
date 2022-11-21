@@ -27,7 +27,7 @@ namespace MinimalAPI_Reconocimiento.Services
             else
                 await _messageSender.PublishAsync<Pagos, string>(message);
             
-            logger.LogInformation("Patente validada.");
+            logger.LogInformation($"Patente {message} validada.");
         }
 
         //validar si existe la patente en nuestra base de datos y si está activa o no.

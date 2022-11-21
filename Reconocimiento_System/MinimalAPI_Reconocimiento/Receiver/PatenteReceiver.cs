@@ -35,14 +35,14 @@ namespace MinimalAPI_Reconocimiento.Receiver
 
         public override Task StartAsync(CancellationToken cancellationToken)
         {
-            logger.LogDebug("RabbitMQ Listener for {QueueName} started", queueName);
+            logger.LogDebug($"RabbitMQ Listener for {queueName} started");
 
             return base.StartAsync(cancellationToken);
         }
 
         public override Task StopAsync(CancellationToken cancellationToken)
         {
-            logger.LogDebug("RabbitMQ Listener for {QueueName} stopped", queueName);
+            logger.LogDebug($"RabbitMQ Listener for {queueName} stopped");
 
             return base.StopAsync(cancellationToken);
         }
@@ -56,7 +56,7 @@ namespace MinimalAPI_Reconocimiento.Receiver
             {
                 try
                 {
-                    logger.LogDebug("Messaged received: {Request}", Encoding.UTF8.GetString(message.Body.Span));
+                    logger.LogDebug($"Messaged received: {Encoding.UTF8.GetString(message.Body.Span)}");
 
                     using var scope = serviceProvider.CreateScope();
 
