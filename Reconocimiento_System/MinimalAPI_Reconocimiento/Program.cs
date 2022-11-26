@@ -11,6 +11,7 @@ using MinimalAPI_Reconocimiento.Receiver;
 using MinimalAPI_Reconocimiento.Services;
 using RabbitMqService.Queues;
 using RabbitMqService.RabbitMq;
+using Serilog;
 
 var builder = WebApplication
                 .CreateBuilder(args)
@@ -38,6 +39,9 @@ void ConfigureServices(IServiceCollection services, IConfiguration configuration
     services.AddEndpointsApiExplorer();
     services.AddSwaggerGen();
     services.ConfigureLogger(builder);
+    Log.Logger = new LoggerConfiguration()
+        .ReadFrom.Configuration(configuration)
+        .CreateLogger();
     services.AddScoped<PatenteEndpoint>();
     services.AddScoped<IPatenteRepository, PatenteRepository>();
     services.AddScoped<IPatenteService, PatenteService>();
@@ -74,7 +78,7 @@ void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         app.UseSwaggerUI();
         var context = app.ApplicationServices.GetService<ApplicationDbContext>();
         context?.Database?.Migrate();
-        //context?.AddPatente(randomBoolean: true, count: 50);
+        context?.AddPatente(randomBoolean: true, count: 50);
     }
 
     app.UseHttpsRedirection();

@@ -10,7 +10,7 @@ namespace MinimalAPI_Reconocimiento.Endpoints.Patente
     public class PatenteEndpoint
     {
         private readonly IPatenteService _patenteService;
-        private readonly ILogger<PatenteEndpoint> _logger;
+        private readonly ILogger _logger;
         public PatenteEndpoint(IPatenteService patenteService, ILoggerFactory logger)
         {
             _patenteService = patenteService;
@@ -34,6 +34,7 @@ namespace MinimalAPI_Reconocimiento.Endpoints.Patente
                        throw;
                    }
                })
+                
            .WithTags("Patente")
            .WithMetadata(new SwaggerOperationAttribute("..."))
            .Produces<Models.ApplicationModel.PatenteModel>(StatusCodes.Status200OK, contentType: MediaTypeNames.Application.Json)
