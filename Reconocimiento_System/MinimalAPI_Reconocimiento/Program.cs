@@ -18,8 +18,21 @@ var builder = WebApplication
                 .ConfigureBuilder();
 
 ConfigureServices(builder.Services, builder.Configuration);
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "CorsApi",
+                      builder =>
+                      {
+                          builder.WithOrigins("https://localhost:44394")
+                                 .AllowAnyMethod()
+                                 .AllowAnyHeader()
+                                 .AllowCredentials(); ;
+                      });
+
+});
 var app = builder.Build();
 
+app.UseCors("CorsApi");
 using (var scope = app.Services.CreateScope())
 {
     var databaseContext = scope.ServiceProvider.GetService<ApplicationDbContext>();
