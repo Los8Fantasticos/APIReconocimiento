@@ -34,6 +34,7 @@ namespace MinimalAPI_Reconocimiento.Configurations
                     schemaName: builder.Configuration.GetSection("Serilog").GetSection("SchemaName").Value);
             });
 
+
             #endregion Logging
 
             

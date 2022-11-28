@@ -91,7 +91,7 @@ void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         app.UseSwaggerUI();
         var context = app.ApplicationServices.GetService<ApplicationDbContext>();
         context?.Database?.Migrate();
-        context?.AddPatente(randomBoolean: true, count: 50);
+        //context?.AddPatente(randomBoolean: true, count: 50);
     }
 
     app.UseHttpsRedirection();
