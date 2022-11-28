@@ -19,7 +19,7 @@ namespace MinimalAPI_Reconocimiento.Endpoints.Patente
         public async Task MapPatenteEndpoints(WebApplication app)
         {
             _ = app.MapGet(
-               "/api/transitoGenerado",
+               "/api/patentes/transitoGenerado",
                async () =>
                {
                    try
@@ -43,7 +43,7 @@ namespace MinimalAPI_Reconocimiento.Endpoints.Patente
            .Produces<ApiError>(StatusCodes.Status500InternalServerError, contentType: MediaTypeNames.Application.Json);
 
             _ = app.MapGet(
-               "/api/transitoReconocido",
+               "/api/patentes/transitoReconocido",
                async () =>
                {
                    try
@@ -66,7 +66,7 @@ namespace MinimalAPI_Reconocimiento.Endpoints.Patente
            .Produces<ApiError>(StatusCodes.Status500InternalServerError, contentType: MediaTypeNames.Application.Json);
 
             _ = app.MapGet(
-               "/api/transitoNoReconocido",
+               "/api/patentes/transitoNoReconocido",
                async () =>
                {
                    try
