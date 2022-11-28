@@ -23,10 +23,10 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: "CorsApi",
                       builder =>
                       {
-                          builder.WithOrigins("https://localhost:44394")
+                          builder.WithOrigins("http://localhost:3000")
                                  .AllowAnyMethod()
                                  .AllowAnyHeader()
-                                 .AllowCredentials(); ;
+                                 .AllowCredentials();
                       });
 
 });
