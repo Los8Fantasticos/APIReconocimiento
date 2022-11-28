@@ -30,7 +30,7 @@ namespace MinimalAPI_Reconocimiento.Endpoints.Patente
                    }
                    catch (Exception ex)
                    {
-                       _logger.LogError(ex, "Error en endpoint Validar Patente.");
+                       _logger.LogError(ex.Message, "Error al obtener transito generado.");
                        throw;
                    }
                })
@@ -54,7 +54,7 @@ namespace MinimalAPI_Reconocimiento.Endpoints.Patente
                    }
                    catch (Exception ex)
                    {
-                       _logger.LogError(ex, "Error en endpoint Validar Patente.");
+                       _logger.LogError(ex.Message, "Error al obtener transito reconocido.");
                        throw;
                    }
                })
@@ -77,7 +77,7 @@ namespace MinimalAPI_Reconocimiento.Endpoints.Patente
                    }
                    catch (Exception ex)
                    {
-                       _logger.LogError(ex, "Error en endpoint Validar Patente.");
+                       _logger.LogError(ex.Message, "Error al obtener el transito no reconocido.");
                        throw;
                    }
                })
